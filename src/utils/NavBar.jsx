@@ -10,9 +10,6 @@ function NavBar() {
                     {location.pathname === '/'
                         ? "We're on the home page"
                         : "Go home"}
-                    {
-                        console.log(location.pathname)
-                    }
                 </a>
             </span>
             <span id="productsButton">
