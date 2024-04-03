@@ -1,5 +1,6 @@
 // import { useState } from 'react'
 import NavBar from './utils/NavBar'
+import girlsShopping from './assets/girlsShopping.svg'
 import './App.css'
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
   return (
     <>
       <NavBar />
-      <a href="products">Products page</a>
+      <h1>Let&apos;s goo shoppping!!$!!$!!</h1>
+      <img src={girlsShopping} className="girls" alt="Imagine an image of shopping" />
     </>
   )
 

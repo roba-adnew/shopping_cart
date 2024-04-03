@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom'
 function NavBar() {
     const location = useLocation();
 
-    console.log(location.pathname);
     return (
         <div id="navBar">
             <span id="homeButton">
