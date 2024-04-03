@@ -1,9 +1,14 @@
 // import { useState } from 'react'
+
 import './App.css'
 
 function App() {
 
-  return (<></>)
+  return (
+    <>
+      <a href="products">Products page</a>
+    </>
+  )
 
 }
 
