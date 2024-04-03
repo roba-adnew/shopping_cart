@@ -1,4 +1,5 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function NavBar() {
     const location = useLocation();
@@ -24,4 +25,19 @@ function NavBar() {
     )
 }
 
-export default NavBar;
+function ProductCard({ productInfo }) {
+    return (
+        <div>
+            <h3>{productInfo.title}</h3>
+            <img src={productInfo.image}></img>
+            <p>{productInfo.description}</p>
+            <p>{`$${productInfo.price}`}</p>
+        </div>
+    )
+}
+
+ProductCard.propTypes = {
+    productInfo : PropTypes.object
+}
+
+export { NavBar, ProductCard };

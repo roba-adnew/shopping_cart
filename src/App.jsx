@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import NavBar from './utils/NavBar'
+import { NavBar } from './utils/Components'
 import girlsShopping from './assets/girlsShopping.svg'
 import './App.css'
 
