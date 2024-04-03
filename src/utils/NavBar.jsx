@@ -3,32 +3,20 @@ import { useLocation } from 'react-router-dom'
 function NavBar() {
     const location = useLocation();
 
-    const navBarStyle = {
-        "display": "flex",
-        "flexDirection": "row"
-
-    }
-    
-    const homeButtonStyle = {
-        "textAlign": "center",
-        "flexGrow": "1",
-        "border": "1px solid black"
-    }
-
-    const productsButtonStyle = {
-        "textAlign": "center",
-        "flexGrow": "1",
-        "border": "1px solid black"
-
-    }
-
+    console.log(location.pathname);
     return (
-        <div style={navBarStyle}>
-            <span style={homeButtonStyle}>
-                <a href="/">Home page</a>
+        <div id="navBar">
+            <span id="homeButton">
+                <a href="/">
+                    {location.pathname === '/' 
+                        ? "Go home" : "We're on the home page"}
+                </a>
             </span>
-            <span style={productsButtonStyle}>
-                <a href="products">Products page</a>
+            <span id="productsButton">
+                <a href="products">
+                {location.pathname === '/products' 
+                        ? "Go shopping" : "We're on the product page"}
+                </a>
             </span>
         </div>
     )

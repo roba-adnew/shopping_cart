@@ -1,3 +1,5 @@
+import NavBar from './utils/NavBar'
+
 function Products() {
 
     const ITEMS = Array(3)
@@ -9,6 +11,7 @@ function Products() {
 
     return (
         <>
+            <NavBar />
             <table>
                 <tbody>
                     {ROWS.map(row => (

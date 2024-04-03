@@ -1,6 +1,49 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  font-family: Geneva, Verdana, sans-serif;
+}
+
+#navBar {
+  display: flex;
+  flex-direction: row
+}
+
+#homeButton {
+  text-align: center;
+  flex-grow: 1;
+  border: 1px solid black;
+  background-color: rgb(112, 144, 240);
+}
+
+#homeButton:hover {
+  text-align: center;
+  flex-grow: 1;
+  border: 1px solid black;
+  background-color: rgb(58, 74, 122);
+}
+
+#productsButton {
+  text-align: center;
+  flex-grow: 1;
+  border: 1px solid black;
+  background-color: rgb(210, 238, 210);
+}
+
+#productsButton:hover {
+  text-align: center;
+  flex-grow: 1;
+  border: 1px solid black;
+  background-color: rgb(57, 124, 57);
+}
+
+a, a:visited {
+  color: black;
+  text-decoration: none
+}
+
+#productsButton:hover > a,
+#homeButton:hover > a {
+  color: white;
 }
