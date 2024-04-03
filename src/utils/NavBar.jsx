@@ -7,14 +7,20 @@ function NavBar() {
         <div id="navBar">
             <span id="homeButton">
                 <a href="/">
-                    {location.pathname === '/' 
-                        ? "Go home" : "We're on the home page"}
+                    {location.pathname === '/'
+                        ? "We're on the home page"
+                        : "Go home"}
+                    {
+                        console.log(location.pathname)
+                    }
                 </a>
             </span>
             <span id="productsButton">
                 <a href="products">
-                {location.pathname === '/products' 
-                        ? "Go shopping" : "We're on the product page"}
+                    {location.pathname === '/products'
+                        ? "We're on the product page"
+                        : "Go shopping"}
+
                 </a>
             </span>
         </div>
