@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { cartUpdate } from './functions';
@@ -28,14 +29,19 @@ function NavBar() {
 }
 
 function ProductCard({ productInfo, updateCart }) {
+    const [quantity, setQuantity] = useState(1);
+
+    console.log(quantity);
+
     return (
         <div className="productCard">
             <h3 className="title">{productInfo.title}</h3>
             <img className="image" src={productInfo.image}></img>
             <p className="desc">{productInfo.description}</p>
             <span className="price">{productInfo.price && `$${productInfo.price}`}</span>
+            <input value={quantity} onChange={(e) => setQuantity(e.target.value)}></input>
             <button onClick={() => {
-                updateCart(cartUpdate(1,productInfo.id))
+                updateCart(cartUpdate(quantity, productInfo.id))
             }}>
                 Add to cart</button>
         </div>
