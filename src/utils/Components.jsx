@@ -27,11 +27,11 @@ function NavBar() {
 
 function ProductCard({ productInfo }) {
     return (
-        <div>
-            <h3>{productInfo.title}</h3>
-            <img src={productInfo.image}></img>
-            <p>{productInfo.description}</p>
-            <p>{`$${productInfo.price}`}</p>
+        <div className="productCard">
+            <h3 className="title">{productInfo.title}</h3>
+            <img className="image" src={productInfo.image}></img>
+            <p className="desc">{productInfo.description}</p>
+            <p className="price">{`$${productInfo.price}`}</p>
         </div>
     )
 }

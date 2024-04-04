@@ -1,8 +1,11 @@
-import { NavBar,ProductCard } from './utils/Components'
+import { useState, useEffect } from 'react';
+import { NavBar, ProductCard } from './utils/Components'
 import getProducts from './utils/api';
 
 
 function Products() {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const ITEMS = Array(3)
         .fill()
@@ -13,8 +16,23 @@ function Products() {
         .map((value,i) => `Row #${i}`);
 
 
-    const products = getProducts()[0];
-    console.log(products);
+    useEffect(() => {
+        async function loadProducts() {
+            try {
+                const products = await getProducts();
+                console.log(products);
+                setProducts(products)
+            }
+            catch(error) {
+                throw new Error (`Unable to retrieve products: ${error}`)
+            }
+            finally {
+                setLoading(false)
+            }
+        }
+        loadProducts();
+    },[])
+
 
     return (
         <>
