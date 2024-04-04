@@ -6,6 +6,7 @@ import getProducts from './utils/api';
 function Products() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [cart, setCart] = useState([])
 
     const ITEMS = Array(3)
         .fill()
@@ -15,12 +16,37 @@ function Products() {
         .fill()
         .map((value, i) => `Row #${i}`);
 
+    
+    function updateCart(cartUpdate) {
+        if (cart.length === 0) {
+            setCart([cartUpdate])
+            return
+        }
+
+        const alreadyInCart = cart
+            .map(product => product.id)
+            .includes(cartUpdate.id);       
+        
+        if (!alreadyInCart) {
+            setCart([...cart, cartUpdate]);
+            return
+        }
+
+        const newCart = cart.map(product => {
+            if (product.id === cartUpdate.id) {
+                product.quantity = product.quantity + cartUpdate.quantity;
+                return product
+            }    
+            return product
+        })
+        setCart(newCart);
+    }
+
 
     useEffect(() => {
         async function loadProducts() {
             try {
                 const products = await getProducts();
-                console.log(products);
                 setProducts(products)
             }
             catch (error) {
@@ -45,7 +71,7 @@ function Products() {
     return (
         <>
             <NavBar />
-            <ProductCard productInfo={products} />
+            <ProductCard productInfo={products} updateCart={updateCart}/>
             <table>
                 <tbody>
                     {ROWS.map(row => (
