@@ -5,7 +5,7 @@ import getProducts from './utils/api';
 
 function Products() {
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     const ITEMS = Array(3)
         .fill()
@@ -13,7 +13,7 @@ function Products() {
 
     const ROWS = Array(3)
         .fill()
-        .map((value,i) => `Row #${i}`);
+        .map((value, i) => `Row #${i}`);
 
 
     useEffect(() => {
@@ -23,16 +23,24 @@ function Products() {
                 console.log(products);
                 setProducts(products)
             }
-            catch(error) {
-                throw new Error (`Unable to retrieve products: ${error}`)
+            catch (error) {
+                throw new Error(`Unable to retrieve products: ${error}`)
             }
             finally {
-                setLoading(false)
+                setIsLoading(false)
             }
         }
         loadProducts();
-    },[])
+    }, [])
 
+    if (isLoading) {
+        return (
+            <>
+                <NavBar />
+                <dialog>We&apos;re getting those products for you</dialog>
+            </>
+        )
+    }
 
     return (
         <>

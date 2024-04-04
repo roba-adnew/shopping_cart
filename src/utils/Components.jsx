@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import '../Products.css'
 
 function NavBar() {
     const location = useLocation();
@@ -31,7 +32,7 @@ function ProductCard({ productInfo }) {
             <h3 className="title">{productInfo.title}</h3>
             <img className="image" src={productInfo.image}></img>
             <p className="desc">{productInfo.description}</p>
-            <p className="price">{`$${productInfo.price}`}</p>
+            <span className="price">{productInfo.price && `$${productInfo.price}`}</span>
         </div>
     )
 }

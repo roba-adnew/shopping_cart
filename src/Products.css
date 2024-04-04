@@ -1,0 +1,28 @@
+.productCard {
+    margin: 5px;
+    padding: 7px;
+    width: 200px;
+    border: 1px solid black;
+
+}
+
+.title {
+    font-size: 14px;
+}
+
+.image {
+    max-width: 80%;
+}
+
+.desc {
+    font-size: 10px;
+}
+
+.price {
+    font-size: 14px;
+    border-right: 1px solid black;
+    padding: 2px;
+}
+
+
+
