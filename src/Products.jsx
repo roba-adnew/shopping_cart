@@ -8,6 +8,8 @@ function Products() {
     const [isLoading, setIsLoading] = useState(true);
     const [cart, setCart] = useState([])
 
+    console.log(catalog);
+
     function updateCart(cartUpdate) {
         if (cart.length === 0) {
             setCart([cartUpdate])

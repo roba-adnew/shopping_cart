@@ -31,15 +31,13 @@ function NavBar() {
 function ProductCard({ productInfo, updateCart }) {
     const [quantity, setQuantity] = useState(1);
 
-    console.log(quantity);
-
     return (
         <div className="productCard">
             <h3 className="title">{productInfo.title}</h3>
             <img className="image" src={productInfo.image}></img>
             <p className="desc">{productInfo.description}</p>
             <div className="checkout">
-                <span className="price">{productInfo.price && `$${productInfo.price}`}</span>
+                <span className="price">{productInfo.price && `$${productInfo.price.toFixed(2)}`}</span>
                 <input
                     className="quantity"
                     type="number"
