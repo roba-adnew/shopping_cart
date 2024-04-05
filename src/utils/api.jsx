@@ -1,9 +1,9 @@
 async function getProducts() {
-    const rawResponse = await fetch('https://fakestoreapi.com/products?limit=1');
+    const rawResponse = await fetch('https://fakestoreapi.com/products?limit=25');
     const jsonResponse = await rawResponse.json();
-    const product = jsonResponse[0];
+    const catalog = jsonResponse;
     
-    return product;
+    return catalog;
 }
 
 export default getProducts;

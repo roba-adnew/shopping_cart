@@ -4,19 +4,10 @@ import getProducts from './utils/api';
 
 
 function Products() {
-    const [products, setProducts] = useState([]);
+    const [catalog, setCatalog] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [cart, setCart] = useState([])
 
-    const ITEMS = Array(3)
-        .fill()
-        .map(() => `Product #${Math.round(Math.random() * 100)}`);
-
-    const ROWS = Array(3)
-        .fill()
-        .map((value, i) => `Row #${i}`);
-
-    
     function updateCart(cartUpdate) {
         if (cart.length === 0) {
             setCart([cartUpdate])
@@ -25,8 +16,8 @@ function Products() {
 
         const alreadyInCart = cart
             .map(product => product.id)
-            .includes(cartUpdate.id);       
-        
+            .includes(cartUpdate.id);
+
         if (!alreadyInCart) {
             setCart([...cart, cartUpdate]);
             return
@@ -36,7 +27,7 @@ function Products() {
             if (product.id === cartUpdate.id) {
                 product.quantity = product.quantity + cartUpdate.quantity;
                 return product
-            }    
+            }
             return product
         })
         setCart(newCart);
@@ -46,11 +37,11 @@ function Products() {
     useEffect(() => {
         async function loadProducts() {
             try {
-                const products = await getProducts();
-                setProducts(products)
+                const catalog = await getProducts();
+                setCatalog(catalog)
             }
             catch (error) {
-                throw new Error(`Unable to retrieve products: ${error}`)
+                throw new Error(`Unable to retrieve catalog: ${error}`)
             }
             finally {
                 setIsLoading(false)
@@ -63,7 +54,9 @@ function Products() {
         return (
             <>
                 <NavBar />
-                <dialog>We&apos;re getting those products for you</dialog>
+                <dialog>We&apos;re getting those catalog for you</dialog>
+                <h3>In your cart...</h3>
+
             </>
         )
     }
@@ -71,21 +64,15 @@ function Products() {
     return (
         <>
             <NavBar />
-            <ProductCard productInfo={products} updateCart={updateCart}/>
-            <table>
-                <tbody>
-                    {ROWS.map(row => (
-                        <tr key={row}>
-                            {ITEMS.map(item => (
-                                <td key={item}>{item}</td>
-                            ))
-                            }
-                        </tr>
-                    ))
-
-                    }
-                </tbody>
-            </table>
+            <div id="catalog"> 
+            {catalog.map(product => (
+                <ProductCard
+                    key={product.id}
+                    productInfo={product}
+                    updateCart={updateCart}
+                />
+            ))}
+            </div>
         </>
     )
 }
