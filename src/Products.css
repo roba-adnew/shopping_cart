@@ -4,11 +4,13 @@
 }
 
 .productCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 5px;
     padding: 7px;
     width: 250px;
     border: 1px solid black;
-
 }
 
 .title {
@@ -17,10 +19,18 @@
 
 .image {
     max-width: 80%;
+    align-self: center;
 }
 
 .desc {
     font-size: 10px;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
 }
 
 .price {

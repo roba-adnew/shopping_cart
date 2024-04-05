@@ -38,27 +38,30 @@ function ProductCard({ productInfo, updateCart }) {
             <h3 className="title">{productInfo.title}</h3>
             <img className="image" src={productInfo.image}></img>
             <p className="desc">{productInfo.description}</p>
-            <span className="price">{productInfo.price && `$${productInfo.price}`}</span>
-            <input 
-                className="quantity"
-                type="number"
-                value={quantity} 
-                onChange={
-                    (e) => setQuantity(e.target.value)}
-                    >
+            <div className="checkout">
+                <span className="price">{productInfo.price && `$${productInfo.price}`}</span>
+                <input
+                    className="quantity"
+                    type="number"
+                    value={quantity}
+                    onChange={
+                        (e) => setQuantity(e.target.value)}
+                >
 
-                    </input>
-            <button onClick={() => {
-                updateCart(cartUpdate(quantity, productInfo.id))
-            }}>
-                Add to cart</button>
+                </input>
+                <button onClick={() => {
+                    updateCart(cartUpdate(quantity, productInfo.id))
+                }}>
+                    Add to cart
+                </button>
+            </div>
         </div>
     )
 }
 
 ProductCard.propTypes = {
-    productInfo : PropTypes.object,
-    updateCart : PropTypes.func
+    productInfo: PropTypes.object,
+    updateCart: PropTypes.func
 }
 
 export { NavBar, ProductCard };
