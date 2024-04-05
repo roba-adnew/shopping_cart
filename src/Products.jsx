@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavBar, ProductCard } from './utils/Components'
+import Cart from './Cart.jsx';
 import getProducts from './utils/api';
 
 
@@ -20,7 +21,7 @@ function Products() {
             .map(product => product.product.id)
             .includes(cartUpdate.product.id);
 
-            console.log(alreadyInCart)
+        console.log(alreadyInCart)
 
         if (!alreadyInCart) {
             setCart([...cart, cartUpdate]);
@@ -29,7 +30,7 @@ function Products() {
 
         const newCart = cart.map(product => {
             if (product.id === cartUpdate.id) {
-                product.quantity = 
+                product.quantity =
                     parseInt(product.quantity) + parseInt(cartUpdate.quantity);
                 return product
             }
@@ -69,27 +70,18 @@ function Products() {
     return (
         <>
             <NavBar />
-            {cart.length > 0 && 
-            <h3>In your cart...</h3>
-            }
-            {cart.map(item => 
-                (<p key={item.product.id}>
-                {item.product.title}:
-                {item.quantity}
-                </p>))
-
-            }
-            <div id="catalog"> 
-            {catalog.map(product => (
-                <ProductCard
-                    key={product.id}
-                    productInfo={product}
-                    updateCart={updateCart}
-                />
-            ))}
+            <div id="products">
+                <div id="catalog">
+                    {catalog.map(product => (
+                        <ProductCard
+                            key={product.id}
+                            productInfo={product}
+                            updateCart={updateCart}
+                        />
+                    ))}
+                </div>
+                <Cart cart={cart} updateCart={updateCart} />
             </div>
-            
-            
         </>
     )
 }

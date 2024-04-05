@@ -1,4 +1,14 @@
+/* Parent */
+
+#products {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Products page product cards */
+
 #catalog {
+    flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, auto));
     grid-auto-rows: repeat(auto-fit, minmax(520px, auto));
@@ -10,7 +20,7 @@
     justify-content: space-between;
     margin: 5px;
     padding: 7px;
-    width: 250px;
+    width: min(250px);
     border: 1px solid black;
 }
 
@@ -44,3 +54,11 @@
     text-align: center;
 }
 
+/* Cart */
+#cart {
+    position: relative;
+    flex-basis: 20%;
+    height: 95vh;
+    margin: 1px;
+    flex-grow: 0;
+}
