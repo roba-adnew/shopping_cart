@@ -37,7 +37,11 @@ function ProductCard({ productInfo, updateCart }) {
             <img className="image" src={productInfo.image}></img>
             <p className="desc">{productInfo.description}</p>
             <div className="checkout">
-                <span className="price">{productInfo.price && `$${productInfo.price.toFixed(2)}`}</span>
+                <span 
+                    className="price"
+                >
+                    {productInfo.price && `$${productInfo.price.toFixed(2)}`}
+                </span>
                 <input
                     className="quantity"
                     type="number"
@@ -48,7 +52,8 @@ function ProductCard({ productInfo, updateCart }) {
 
                 </input>
                 <button onClick={() => {
-                    updateCart(cartUpdate(quantity, productInfo.id))
+                    updateCart(
+                        cartUpdate(productInfo, quantity))
                 }}>
                     Add to cart
                 </button>

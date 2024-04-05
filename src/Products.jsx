@@ -8,7 +8,7 @@ function Products() {
     const [isLoading, setIsLoading] = useState(true);
     const [cart, setCart] = useState([])
 
-    console.log(catalog);
+    console.log(cart);
 
     function updateCart(cartUpdate) {
         if (cart.length === 0) {
@@ -17,8 +17,10 @@ function Products() {
         }
 
         const alreadyInCart = cart
-            .map(product => product.id)
-            .includes(cartUpdate.id);
+            .map(product => product.product.id)
+            .includes(cartUpdate.product.id);
+
+            console.log(alreadyInCart)
 
         if (!alreadyInCart) {
             setCart([...cart, cartUpdate]);
@@ -27,7 +29,8 @@ function Products() {
 
         const newCart = cart.map(product => {
             if (product.id === cartUpdate.id) {
-                product.quantity = product.quantity + cartUpdate.quantity;
+                product.quantity = 
+                    parseInt(product.quantity) + parseInt(cartUpdate.quantity);
                 return product
             }
             return product
@@ -66,6 +69,16 @@ function Products() {
     return (
         <>
             <NavBar />
+            {cart.length > 0 && 
+            <h3>In your cart...</h3>
+            }
+            {cart.map(item => 
+                (<p key={item.product.id}>
+                {item.product.title}:
+                {item.quantity}
+                </p>))
+
+            }
             <div id="catalog"> 
             {catalog.map(product => (
                 <ProductCard
@@ -75,6 +88,8 @@ function Products() {
                 />
             ))}
             </div>
+            
+            
         </>
     )
 }
