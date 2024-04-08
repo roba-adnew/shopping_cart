@@ -62,9 +62,24 @@ function ProductCard({ productInfo, updateCart }) {
     )
 }
 
+function CartProductCard({ cartItemInfo, updateCart }) {
+    return (
+        <div className="cartCard">
+            <img className="image" src={cartItemInfo.product.image}></img>
+            <p className="title">{cartItemInfo.product.title}</p>
+            <p className="quantity">{cartItemInfo.quantity}</p>
+        </div>
+    )
+}
+
 ProductCard.propTypes = {
     productInfo: PropTypes.object,
     updateCart: PropTypes.func
 }
 
-export { NavBar, ProductCard };
+CartProductCard.propTypes = {
+    productInfo: PropTypes.object,
+    updateCart: PropTypes.func
+}
+
+export { NavBar, ProductCard, CartProductCard };

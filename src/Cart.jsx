@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types' 
+import { CartProductCard } from './utils/Components'
 import './Products.css'
 
 function Cart({cart, updateCart}) {
@@ -6,13 +7,19 @@ function Cart({cart, updateCart}) {
         <div 
             id="cart"
             className={cart.length > 0 && "show"}>
-            {cart.map(item => 
+            {/* {cart.map(item => 
                 (<p key={item.product.id}>
                 {item.product.title}:
                 {item.quantity}
                 </p>))
 
-            }
+            } */}
+             {cart.map(item => 
+                <CartProductCard 
+                    key={item.product.id}
+                    cartItemInfo={item} 
+                    updateCart={updateCart}  
+                />)}
         </div>
     )
 }

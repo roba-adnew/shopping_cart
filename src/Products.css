@@ -10,7 +10,9 @@
 #catalog {
     flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    transition: transform 0.3s ease-in-out; 
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
     grid-auto-rows: repeat(auto-fit, minmax(520px, auto));
 }
 
@@ -20,7 +22,7 @@
     justify-content: space-between;
     margin: 5px;
     padding: 7px;
-    width: min(250px);
+    width: min(200px);
     border: 1px solid black;
 }
 
@@ -57,7 +59,7 @@
 /* Cart */
 #cart {
     position: relative;
-    flex-basis: 20%;
+    flex-basis: 0%;
     right: 0%;
     height: 95vh;
     margin: 1px;
@@ -67,5 +69,7 @@
 }
 
 #cart.show {
-    transform: translateX(-10%); /* Slide in from the left */
+    /* border: 1px solid black; */
+    flex-basis: 20%;
+    transform: translateX(-5%); /* Slide in from the left */
   }
