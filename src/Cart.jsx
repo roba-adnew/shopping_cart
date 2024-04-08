@@ -3,10 +3,9 @@ import './Products.css'
 
 function Cart({cart, updateCart}) {
     return (
-        <div id="cart">
-            {cart.length > 0 && 
-            <h3>In your cart...</h3>
-            }
+        <div 
+            id="cart"
+            className={cart.length > 0 && "show"}>
             {cart.map(item => 
                 (<p key={item.product.id}>
                 {item.product.title}:

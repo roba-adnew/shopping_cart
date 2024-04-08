@@ -58,7 +58,14 @@
 #cart {
     position: relative;
     flex-basis: 20%;
+    right: 0%;
     height: 95vh;
     margin: 1px;
     flex-grow: 0;
+    transition: transform 0.3s ease-in-out; 
+    transform: translateX(0%); 
 }
+
+#cart.show {
+    transform: translateX(-10%); /* Slide in from the left */
+  }

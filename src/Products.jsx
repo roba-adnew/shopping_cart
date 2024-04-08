@@ -60,9 +60,7 @@ function Products() {
         return (
             <>
                 <NavBar />
-                <dialog>We&apos;re getting those catalog for you</dialog>
-                <h3>In your cart...</h3>
-
+                <dialog>We&apos;re getting our catalog for you</dialog>
             </>
         )
     }
