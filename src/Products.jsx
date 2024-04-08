@@ -11,7 +11,7 @@ function Products() {
 
     console.log(cart);
 
-    function updateCart(cartUpdate) {
+    function addToCart(cartUpdate) {
         if (cart.length === 0) {
             setCart([cartUpdate])
             return
@@ -28,7 +28,17 @@ function Products() {
 
         const newCart = cart.map(product => {
             if (product.id === cartUpdate.id) {
-                product.quantity = parseInt(cartUpdate.quantity);
+                product.quantity = parseInt(product.quantity) + parseInt(cartUpdate.quantity);
+            }
+            return product
+        })
+        setCart(newCart);
+    }
+
+    function updateCart( productId, newQuantity) {
+        const newCart = cart.map(product => {
+            if (product.id === productId) {
+                product.quantity = parseInt(newQuantity);
                 return product
             }
             return product
@@ -71,7 +81,7 @@ function Products() {
                         <ProductCard
                             key={product.id}
                             productInfo={product}
-                            updateCart={updateCart}
+                            addToCart={addToCart}
                         />
                     ))}
                 </div>

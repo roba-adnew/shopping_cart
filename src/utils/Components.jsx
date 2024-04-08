@@ -28,7 +28,7 @@ function NavBar() {
     )
 }
 
-function ProductCard({ productInfo, updateCart }) {
+function ProductCard({ productInfo, addToCart }) {
     const [quantity, setQuantity] = useState(1);
 
     return (
@@ -52,7 +52,7 @@ function ProductCard({ productInfo, updateCart }) {
 
                 </input>
                 <button onClick={() => {
-                    updateCart(
+                    addToCart(
                         cartUpdate(productInfo, quantity))
                 }}>
                     Add to cart
@@ -89,7 +89,7 @@ function CartProductCard({ cartItemInfo, updateCart }) {
 
 ProductCard.propTypes = {
     productInfo: PropTypes.object,
-    updateCart: PropTypes.func
+    addToCart: PropTypes.func
 }
 
 CartProductCard.propTypes = {
