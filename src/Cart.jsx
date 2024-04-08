@@ -7,19 +7,12 @@ function Cart({cart, updateCart}) {
         <div 
             id="cart"
             className={cart.length > 0 && "show"}>
-            {/* {cart.map(item => 
-                (<p key={item.product.id}>
-                {item.product.title}:
-                {item.quantity}
-                </p>))
-
-            } */}
-             {cart.map(item => 
-                <CartProductCard 
-                    key={item.product.id}
-                    cartItemInfo={item} 
-                    updateCart={updateCart}  
-                />)}
+            {cart.map(item => 
+            <CartProductCard 
+                key={item.product.id}
+                cartItemInfo={item} 
+                updateCart={updateCart}  
+            />)}
         </div>
     )
 }

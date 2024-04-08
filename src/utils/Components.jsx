@@ -37,7 +37,7 @@ function ProductCard({ productInfo, updateCart }) {
             <img className="image" src={productInfo.image}></img>
             <p className="desc">{productInfo.description}</p>
             <div className="checkout">
-                <span 
+                <span
                     className="price"
                 >
                     {productInfo.price && `$${productInfo.price.toFixed(2)}`}
@@ -66,8 +66,23 @@ function CartProductCard({ cartItemInfo, updateCart }) {
     return (
         <div className="cartCard">
             <img className="image" src={cartItemInfo.product.image}></img>
-            <p className="title">{cartItemInfo.product.title}</p>
-            <p className="quantity">{cartItemInfo.quantity}</p>
+            <p className="title">
+                {cartItemInfo.product.title.length > 20 ?
+                    cartItemInfo.product.title.slice(0, 18) + "..." :
+                    cartItemInfo.product.title}
+            </p>
+            <p className="price">
+                {`$${cartItemInfo.product.price.toFixed(2)}`}
+            </p>
+            <input
+                className="quantity"
+                type="number"
+                value={cartItemInfo.quantity}
+                onChange={
+                    (e) => updateCart(cartItemInfo, e.target.value)}
+            >
+            </input>
+
         </div>
     )
 }
@@ -78,7 +93,7 @@ ProductCard.propTypes = {
 }
 
 CartProductCard.propTypes = {
-    productInfo: PropTypes.object,
+    cartItemInfo: PropTypes.object,
     updateCart: PropTypes.func
 }
 

@@ -21,8 +21,6 @@ function Products() {
             .map(product => product.product.id)
             .includes(cartUpdate.product.id);
 
-        console.log(alreadyInCart)
-
         if (!alreadyInCart) {
             setCart([...cart, cartUpdate]);
             return
@@ -30,8 +28,7 @@ function Products() {
 
         const newCart = cart.map(product => {
             if (product.id === cartUpdate.id) {
-                product.quantity =
-                    parseInt(product.quantity) + parseInt(cartUpdate.quantity);
+                product.quantity = parseInt(cartUpdate.quantity);
                 return product
             }
             return product
