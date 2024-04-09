@@ -58,10 +58,6 @@
 
 /* Cart */
 
-#cartParent {
-
-}
-
 #cart {
     position: relative;
     flex-basis: 0%;
