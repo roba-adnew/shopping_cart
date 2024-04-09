@@ -51,3 +51,7 @@ a, a:visited {
 #homeButton:hover > a {
   color: white;
 }
+
+#girls {
+  width: 50vw;
+}

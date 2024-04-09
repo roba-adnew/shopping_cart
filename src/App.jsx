@@ -9,7 +9,7 @@ function App() {
     <>
       <NavBar />
       <h1>Let&apos;s goo shoppping!!$!!$!!</h1>
-      <img src={girlsShopping} className="girls" alt="Imagine an image of shopping" />
+      <img src={girlsShopping} id="girls" alt="Imagine an image of shopping" />
     </>
   )
 
