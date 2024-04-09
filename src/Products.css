@@ -57,6 +57,11 @@
 }
 
 /* Cart */
+
+#cartParent {
+
+}
+
 #cart {
     position: relative;
     flex-basis: 0%;
@@ -115,4 +120,15 @@
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
+}
+
+#total {
+    background-color: black;
+    color: white;
+}
+
+#purchase {
+    background-color: green;
+    color: white;
+    width: auto;
 }

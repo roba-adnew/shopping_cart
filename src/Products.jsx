@@ -85,8 +85,13 @@ function Products() {
                         />
                     ))}
                 </div>
-                <Cart cart={cart} updateCart={updateCart} />
+                <Cart 
+                    cart={cart}
+                    updateCart={updateCart} 
+                    setCart={setCart}
+                />
             </div>
+                       
         </>
     )
 }

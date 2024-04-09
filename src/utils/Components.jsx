@@ -72,7 +72,7 @@ function CartProductCard({ cartItemInfo, updateCart }) {
                     cartItemInfo.product.title}
             </p>
             <p className="price">
-                {`$${cartItemInfo.product.price.toFixed(2)}`}
+                ${cartItemInfo.product.price.toFixed(2) * cartItemInfo.quantity}
             </p>
             <input
                 className="quantity"

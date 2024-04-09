@@ -5,6 +5,10 @@
   font-family: Geneva, Verdana, sans-serif;
 }
 
+body {
+  position: relative;
+}
+
 #navBar {
   display: flex;
   flex-direction: row
