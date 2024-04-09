@@ -27,7 +27,7 @@ function Products() {
         }
 
         const newCart = cart.map(product => {
-            if (product.id === cartUpdate.id) {
+            if (product.product.id === cartUpdate.product.id) {
                 product.quantity = parseInt(product.quantity) + parseInt(cartUpdate.quantity);
             }
             return product
@@ -54,7 +54,7 @@ function Products() {
                 setCatalog(catalog)
             }
             catch (error) {
-                throw new Error(`Unable to retrieve catalog: ${error}`)
+                console.log(`Unable to retrieve catalog: ${error}`)
             }
             finally {
                 setIsLoading(false)
