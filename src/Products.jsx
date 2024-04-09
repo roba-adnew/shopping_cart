@@ -37,7 +37,7 @@ function Products() {
 
     function updateCart( productId, newQuantity) {
         const newCart = cart.map(product => {
-            if (product.id === productId) {
+            if (product.product.id === productId) {
                 product.quantity = parseInt(newQuantity);
                 return product
             }

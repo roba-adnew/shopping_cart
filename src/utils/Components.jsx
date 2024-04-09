@@ -79,7 +79,7 @@ function CartProductCard({ cartItemInfo, updateCart }) {
                 type="number"
                 value={cartItemInfo.quantity}
                 onChange={
-                    (e) => updateCart(cartItemInfo, e.target.value)}
+                    (e) => updateCart(cartItemInfo.product.id, e.target.value)}
             >
             </input>
 
